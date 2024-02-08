@@ -1,0 +1,28 @@
+<div class="row">
+  <div *ngFor="let product of products" class="col-md-2">
+    <div class="product px-2 py-4">
+      <a [routerLink]="['/productdetails',product._id]">
+        <img class="w-100" src="{{ product.imageCover }}" />
+        <span><h3 class="h6 fw-bolder">
+          {{ product.title.split(" ").slice(0, 2).join(" ") }}
+        </h3></span>
+        <div class="d-flex align-items-center justify-content-between">
+          <span class="text-muted fw-bold fs-sm">{{product.price}} EGP</span>
+          <div>
+            <i class="fas fa-star rating-color"></i>
+            <span class="text-muted fw-bold font-sm">{{
+              product.ratingsAverage
+            }}</span>
+          </div>
+        </div>
+      </a>
+      <button
+      (click)="addToCart(product._id)"
+      class="btn bg-main text-white w-100"
+    >
+      + Add
+    </button>
+
+    </div>
+  </div>
+</div>
